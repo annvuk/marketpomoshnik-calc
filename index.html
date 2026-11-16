@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор экономии — МаркетПомощник</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">🤖 МаркетПомощник</a>
+      <p class="header__subtitle">Калькулятор экономии</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <section class="intro">
+        <h1>Рассчитайте экономию от внедрения ИИ-ассистента</h1>
+        <p class="intro__lead">Узнайте, сколько вы сэкономите, автоматизировав службу поддержки маркетплейса</p>
+      </section>
+
+      <section class="calculator">
+        <div class="calculator__inputs">
+          <h2>Исходные данные</h2>
+          
+          <label class="field">
+            <span>Обращений в месяц</span>
+            <input type="number" id="requests" min="0" placeholder="1000" step="1">
+            <span class="field__hint">Количество вопросов покупателей</span>
+          </label>
+
+          <label class="field">
+            <span>Стоимость одного обращения, ₽</span>
+            <input type="number" id="costPerRequest" min="0" placeholder="150" step="0.01">
+            <span class="field__hint">Сколько платите оператору за обработку</span>
+          </label>
+
+          <label class="field">
+            <span>Процент автоматизации ИИ, %</span>
+            <input type="number" id="automation" min="0" max="100" placeholder="70" step="1">
+            <span class="field__hint">Долю обращений, которую возьмёт ИИ (0–100)</span>
+          </label>
+
+          <label class="field">
+            <span>Тариф ИИ-ассистента, ₽/мес</span>
+            <input type="number" id="aiTariff" min="0" placeholder="5000" step="0.01">
+            <span class="field__hint">Ежемесячная стоимость подписки</span>
+          </label>
+
+          <label class="field">
+            <span>Разовые затраты на внедрение, ₽</span>
+            <input type="number" id="setupCost" min="0" placeholder="0" step="0.01">
+            <span class="field__hint">Настройка, интеграция, обучение (необязательно)</span>
+          </label>
+
+          <div class="buttons">
+            <button id="calcBtn" class="btn btn--primary">Рассчитать</button>
+            <button id="resetBtn" class="btn btn--ghost">Сбросить</button>
+          </div>
+
+          <div id="errorMsg" class="error" hidden></div>
+        </div>
+
+        <div class="calculator__results" id="results" hidden>
+          <h2>Результаты расчёта</h2>
+          
+          <div class="result-card">
+            <div class="result-card__label">Текущие затраты на поддержку</div>
+            <div class="result-card__value" id="currentCost">0 ₽</div>
+          </div>
+
+          <div class="result-card">
+            <div class="result-card__label">Затраты с ИИ-ассистентом</div>
+            <div class="result-card__value" id="aiCost">0 ₽</div>
+          </div>
+
+          <div class="result-card result-card--highlight">
+            <div class="result-card__label">Ежемесячная экономия</div>
+            <div class="result-card__value" id="monthlySavings">0 ₽</div>
+          </div>
+
+          <div class="result-card result-card--highlight">
+            <div class="result-card__label">Годовая экономия</div>
+            <div class="result-card__value" id="yearlySavings">0 ₽</div>
+          </div>
+
+          <div class="result-card" id="paybackCard" hidden>
+            <div class="result-card__label">Срок окупаемости</div>
+            <div class="result-card__value" id="paybackPeriod">0 мес</div>
+          </div>
+
+          <div id="lossWarning" class="warning" hidden>
+            ⚠️ При таких параметрах внедрение ИИ приведёт к убытку. Проверьте процент автоматизации и тариф.
+          </div>
+
+          <p class="disclaimer">
+            Расчёт носит оценочный характер. Реальная экономия зависит от специфики вашего бизнеса.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 МаркетПомощник. Учебный демонстрационный проект.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
